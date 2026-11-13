@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>期末週課程筆記站</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header><h1>期末週課程筆記站</h1><p class="meta">一個主題一頁，共 <span id="count">3</span> 篇。輸入關鍵字即可篩選。</p></header>
+<main>
+<input class="search" id="q" type="search" placeholder="搜尋：agent、堆疊、POLC…" aria-label="搜尋筆記">
+<ul class="cards" id="list">
+<!-- NOTES:START -->
+<li class="card" data-course="mgmt"><a href="pages/mgmt-polc-functions-03.html"><span class="tag tag-mgmt">管理學</span><h2>管理四大功能 POLC</h2><p>規劃、組織、領導、控制，是一個循環。</p></a></li>
+<li class="card" data-course="ds"><a href="pages/ds-dual-stack-calculator-02.html"><span class="tag tag-ds">資料結構</span><h2>雙堆疊中序計算機</h2><p>運算元一疊、運算子一疊，靠優先順序決定何時計算。</p></a></li>
+<li class="card" data-course="ai"><a href="pages/ai-agent-patterns-01.html"><span class="tag tag-ai">AI 代理</span><h2>Agent 三種設計模式</h2><p>Reflection、Tool Use、Planning 的差別與選擇。</p></a></li>
+<!-- NOTES:END -->
+</ul>
+</main>
+<footer>最後更新：2026-11-14</footer>
+<script>
+document.getElementById('q').addEventListener('input',function(e){
+  var k=e.target.value.trim().toLowerCase();
+  document.querySelectorAll('#list .card').forEach(function(c){
+    c.hidden=k&&c.textContent.toLowerCase().indexOf(k)<0;
+  });
+});
+</script>
+</body>
+</html>

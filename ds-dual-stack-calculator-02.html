@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>雙堆疊中序計算機 - 筆記站</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<header><a href="../index.html">返回首頁</a>
+<h1>雙堆疊中序計算機</h1><p class="meta"><span class="tag tag-ds">資料結構</span></p></header>
+<main>
+<section class="summary"><p>用運算元堆疊存數字、運算子堆疊存符號，遇到優先順序不高於堆疊頂端的運算子就先計算。</p></section>
+<section><h2>逐 token 規則</h2>
+<ul><li>數字：推入運算元堆疊</li><li><code>(</code>：推入運算子堆疊</li><li><code>)</code>：一路計算直到遇到 <code>(</code>，再把它彈出</li><li>運算子：只要頂端優先順序 ≥ 目前運算子就先計算，之後再推入</li><li>結束：把運算子堆疊清空並計算</li></ul></section>
+<section><h2>計算一次的動作</h2><pre>b = 運算元.pop()
+a = 運算元.pop()
+op = 運算子.pop()
+運算元.push(a op b)</pre><p><mark>注意彈出順序：先取到的是右運算元 b。</mark>減法與除法會因此出錯。</p></section>
+<section class="review"><h2>自我檢查</h2>
+<details><summary>3 + 4 * 2 時，+ 會先被計算嗎？</summary>不會，* 優先順序較高，+ 留在堆疊。</details>
+<details><summary>8 - 3 - 2 為什麼同優先順序要先算？</summary>減法左結合，先算 8 - 3 才正確。</details>
+<details><summary>運算元不足怎麼辦？</summary>視為輸入錯誤，依作業規格輸出錯誤訊息（待依題目確認格式）。</details></section>
+</main>
+<footer>最後更新：2026-11-14</footer>
+</body>
+</html>
