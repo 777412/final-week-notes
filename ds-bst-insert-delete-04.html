@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>二元搜尋樹的插入與刪除 - 筆記站</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<header><a href="../index.html">返回首頁</a>
+<h1>二元搜尋樹的插入與刪除</h1><p class="meta"><span class="tag tag-ds">資料結構</span></p></header>
+<main>
+<section class="summary"><p>插入就是一路比較大小走到空位；刪除要看被刪節點有幾個子節點。</p></section>
+<section><h2>插入</h2>
+<p>從根節點開始：小於目前節點往左，大於往右，走到空位就掛上新節點。<mark>中序走訪二元搜尋樹會得到由小到大的排序結果。</mark></p></section>
+<section><h2>刪除的三種情況</h2>
+<table><tr><th>被刪節點</th><th>做法</th></tr>
+<tr><td>沒有子節點（葉節點）</td><td>直接移除</td></tr>
+<tr><td>只有一個子節點</td><td>用該子節點取代它</td></tr>
+<tr><td>有兩個子節點</td><td>用右子樹最小值（中序後繼）取代，再刪掉那個後繼節點</td></tr></table>
+<p><mark>兩個子節點的情況最容易寫錯：後繼節點最多只有右子節點，所以第二步會落回前兩種情況。</mark></p></section>
+<section><h2>複雜度</h2>
+<p>操作成本與樹高成正比：樹大致平衡時約為 O(log n)，資料依序插入導致斜樹時退化為 O(n)。</p></section>
+<section class="review"><h2>自我檢查</h2>
+<details><summary>依序插入 1, 2, 3, 4 會得到什麼形狀？</summary>一條向右的斜樹，樹高為 4。</details>
+<details><summary>刪除有兩個子節點的節點時，為什麼可以用中序後繼取代？</summary>它是比被刪值大的最小值，取代後左小右大的性質仍成立。</details>
+<details><summary>中序走訪的結果有什麼特性？</summary>由小到大排序。</details></section>
+</main>
+<footer>最後更新：2026-11-14</footer>
+</body>
+</html>

@@ -12,7 +12,7 @@
 <main>
 <section class="summary"><p>用運算元堆疊存數字、運算子堆疊存符號，遇到優先順序不高於堆疊頂端的運算子就先計算。</p></section>
 <section><h2>逐 token 規則</h2>
-<ul><li>數字：推入運算元堆疊</li><li><code>(</code>：推入運算子堆疊</li><li><code>)</code>：一路計算直到遇到 <code>(</code>，再把它彈出</li><li>運算子：只要頂端優先順序 ≥ 目前運算子就先計算，之後再推入</li><li>結束：把運算子堆疊清空並計算</li></ul></section>
+<ul><li>數字：推入運算元堆疊</li><li><code>(</code>：推入運算子堆疊</li><li><code>)</code>：一路計算直到遇到 <code>(</code>，再把它彈出</li><li>運算子：<mark>只要頂端優先順序 ≥ 目前運算子就先計算</mark>，之後再推入</li><li>結束：把運算子堆疊清空並計算</li></ul></section>
 <section><h2>計算一次的動作</h2><pre>b = 運算元.pop()
 a = 運算元.pop()
 op = 運算子.pop()
